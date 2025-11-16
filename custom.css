@@ -1,0 +1,165 @@
+/* =========================================
+   GLOBAL VARIABLES (Light + Dark Mode)
+========================================= */
+:root {
+    /* Light Mode Colors */
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+
+    /* Primary */
+    --primary: #0d6efd;
+    --primary-hover: #0b5ed7;
+
+    /* Special */
+    --modal-bg: #ffffff;
+    --navbar-bg: var(--primary);
+
+    /* Inputs */
+    --input-bg: #ffffff;
+    --input-border: #ced4da;
+    --placeholder-color: #6c757d;
+
+    /* Table headers */
+    --table-header-bg: #0d6efd;
+    --table-header-color: #ffffff;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --bg-color: #181a1b;
+    --text-color: #e5e5e5;
+    --card-bg: #242728;
+    --border-color: #3a3d3e;
+
+    /* Primary */
+    --primary: #4d9eff;
+    --primary-hover: #82b7ff;
+
+    --modal-bg: #242728;
+    --navbar-bg: #101214;
+
+    /* Inputs */
+    --input-bg: #1f2123;
+    --input-border: #555;
+    --placeholder-color: #aaa;
+
+    /* Table headers */
+    --table-header-bg: #333;
+    --table-header-color: #ffffff;
+}
+
+/* =========================================
+   BODY, LINKS, NAVBAR, CARDS
+========================================= */
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+a, .nav-link {
+    color: var(--text-color) !important;
+    transition: color 0.2s;
+}
+
+.navbar {
+    background: var(--navbar-bg) !important;
+}
+
+.navbar-brand strong {
+    color: #fff !important;
+}
+
+.card, .modal-content {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.btn-outline-light {
+    color: #fff;
+    border-color: #fff;
+    transition: all 0.2s;
+}
+
+[data-theme="dark"] .btn-outline-light {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+/* =========================================
+   FORMS / INPUTS / SELECTS
+========================================= */
+input, textarea, select {
+    background: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--input-border);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--placeholder-color);
+}
+
+.form-check-input {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+}
+
+/* =========================================
+   TABLES
+========================================= */
+table {
+    color: var(--text-color);
+}
+
+table thead {
+    background: var(--table-header-bg);
+    color: var(--table-header-color);
+}
+
+/* =========================================
+   BADGES / TAGS
+========================================= */
+.badge, .badge-status, .tag-badge {
+    color: #fff;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+.modal-content {
+    background: var(--modal-bg);
+    color: var(--text-color);
+}
+
+/* =========================================
+   MISC
+========================================= */
+.dark-toggle {
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    padding: 6px;
+}

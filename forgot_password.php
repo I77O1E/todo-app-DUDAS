@@ -21,25 +21,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>Forgot Password</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/custom.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const theme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", theme);
+
+            const toggleBtn = document.getElementById("darkToggle");
+            if (toggleBtn) {
+                toggleBtn.onclick = () => {
+                    const current = document.documentElement.getAttribute("data-theme");
+                    const next = current === "light" ? "dark" : "light";
+                    document.documentElement.setAttribute("data-theme", next);
+                    localStorage.setItem("theme", next);
+                };
+            }
+        });
+    </script>
 </head>
 
 <body class="bg-light">
     <div class="container mt-5">
-        <div class="card shadow">
+        <div class="card shadow mx-auto" style="max-width: 400px;">
             <div class="card-body">
-                <h3>Forgot Password</h3>
-                <?php echo $message; ?>
+                <h3 class="text-center mb-4">Forgot Password</h3>
+
+                <!-- PHP message -->
+                <?php if (!empty($message)) echo '<div class="alert alert-info">' . $message . '</div>'; ?>
+
                 <form method="POST">
-                    <div class="mb-3"><label>Email</label><input type="email" name="email" class="formcontrol" required></div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
                     <button type="submit" class="btn btn-warning w-100">Send Reset Link</button>
                 </form>
-                <p class="mt-3"><a href="index.php">Back to Login</a></p>
+
+                <p class="text-center mt-3"><a href="index.php">Back to Login</a></p>
             </div>
         </div>
     </div>
